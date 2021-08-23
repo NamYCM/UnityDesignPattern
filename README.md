@@ -5,4 +5,5 @@ This is a examples of programing pattern in Unity
 - Singleton Pattern: completed
 - Pooling Pattern: developing
 
-Hope you like it
+I will finish it in my free time.
+Hope you like it!!!
