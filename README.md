@@ -6,4 +6,5 @@ This is a examples of programing pattern in Unity
 - Pooling Pattern: developing
 - Observer Pattern: completed
 
-Hope you like it
+I will finish it in my free time.
+Hope you like it!!!
