@@ -1,32 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public class SingletonMono <T> : MonoBehaviour where T : MonoBehaviour
+{
+    private static T instance;
+    private static Object syncRootObject = new Object();
 
-namespace Witches {
-    public class SingletonMono <T> : MonoBehaviour where T : MonoBehaviour
+    public static T Instance
     {
-        private static T instance;
-        private static Object syncRootObject = new Object();
-
-        public static T Instance
+        get
         {
-            get
+            if (instance == null)
             {
-                if (instance == null)
-                {
-                    instance = FindObjectOfType(typeof(T)) as T;
+                instance = FindObjectOfType(typeof(T)) as T;
 
-                    lock (syncRootObject)
+                lock (syncRootObject)
+                {
+                    if (instance == null)
                     {
-                        if (instance == null)
-                        {
-                            instance = new GameObject().AddComponent<T>();
-                            instance.gameObject.name = instance.GetType().Name;
-                        }
+                        instance = new GameObject().AddComponent<T>();
+                        instance.gameObject.name = instance.GetType().Name;
                     }
                 }
-                return instance;
             }
+            return instance;
         }
     }
 }
