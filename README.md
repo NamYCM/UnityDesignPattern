@@ -1,5 +1,5 @@
 # UnityDesignPattern
-This is a examples of programing pattern in Unity
+These are examples of programing pattern in Unity
 
 - Command Pattern: completed
 - Singleton Pattern: completed
