@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    float speed = 5;
+    float speed = 5f;
 
     void Start() {
-        StartCoroutine(DestroyAfter());
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += Vector3.up * speed * Time.deltaTime;
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
+    }
+
+    private void OnEnable () {
+        StartCoroutine(DestroyAfter());
     }
 
     IEnumerator DestroyAfter() {
         yield return new WaitForSeconds(3f);
-        Debug.Log("123");
-        Destroy(this.gameObject);
+        Pooling.Instance.RemoveObject(this.gameObject);
     }
 }
